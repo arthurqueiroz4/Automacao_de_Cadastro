@@ -4,10 +4,19 @@ Resource   ./variables.robot
 *** Variables ***
 *** Keywords ***
 
-Acessar o site
-    Open Browser    ${URL}    ${BROWSER}
+Acessar a página home do site    
+    Go to  ${URL}
+    Title Should Be  ${TITLE}
+
+Abrir navegador
+    Open Browser    about:blank    ${BROWSER}
+
+Fechar navegador
+    Close Browser
+
 
 Clicar no botão cadastro
+    Wait Until Page Contains Element    ${REGISTER_BUTTON}
     Click Element    ${REGISTER_BUTTON}
 
 Preencher dados
